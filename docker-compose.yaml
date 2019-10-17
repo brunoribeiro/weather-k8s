@@ -1,0 +1,17 @@
+version: '3'
+services:
+  bff:
+    build: weather-bff
+    ports:
+      - "8080:8080"
+    environment:
+      - GEO_URL=https://maps.googleapis.com/maps/api/geocode/json
+      - GEO_API_KEY=AIzaSyBX8UokQB8En1oN0kji4HVWL7d8XfXObHc
+      - WEATHER_URL=http://api.weatherbit.io/v2.0/current
+      - WEATHER_API_KEY=67ba20bf8a8144f6a3ea3204c6f1bb74
+      - GIPHY_URL=http://api.giphy.com/v1/gifs/search
+      - GIPHY_API_KEY=bcMVarcDvdr1M69eMUmFX6t4bZa74Hir
+  fe:
+    build: weather-fe
+    ports:
+      - "80:80"
